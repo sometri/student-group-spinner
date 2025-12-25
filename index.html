@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Group Spinner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1><i class="fas fa-users"></i> Student Group Spinner</h1>
             <p>Create random student groups with an interactive spinning wheel</p>
+            <div class="header-links">
+                <a href="README.md" target="_blank" class="header-link">
+                    <i class="fas fa-book"></i> User Guide
+                </a>
+                <a href="readme.html" target="_self" class="header-link">
+                    <i class="fas fa-book"></i> User Guide
+                </a>
+                <a href="#" id="about-link" class="header-link">
+                    <i class="fas fa-user"></i> About Creator
+                </a>
+            </div>
         </div>
 
         <div class="wheel-container">
@@ -30,12 +41,6 @@
 
         <div class="dashboard-container">
             <h2 class="dashboard-title">Dashboard</h2>
-            <!-- User Guide -->
-            <div class="dashboard-title">                 
-                <a href="README.md" target="_blank" style="margin-left: 10px; font-size: 0.8rem; color: #6a11cb; text-decoration: none;">
-                    <i class="fas fa-question-circle"></i> Help
-                </a>
-            </div>
             
             <div class="control-panel">
                 <div class="control-group">
@@ -138,8 +143,77 @@
                 </button>
             </div>
         </div>
+
+        <div class="help-section">
+            <p style="margin-bottom: 10px;">
+                <i class="fas fa-info-circle"></i> Need help using this application?
+            </p>
+            <a href="README.md" target="_blank" 
+               style="color: white; text-decoration: none; background: rgba(255, 255, 255, 0.2); padding: 8px 20px; border-radius: 5px; display: inline-block; transition: background 0.3s;">
+               <i class="fas fa-book"></i> View Complete User Guide
+            </a>
+            <a href="readme.html" target="_self" 
+               style="color: white; text-decoration: none; background: rgba(255, 255, 255, 0.2); padding: 8px 20px; border-radius: 5px; display: inline-block; transition: background 0.3s;">
+               <i class="fas fa-book"></i> View Complete User Guide
+            </a>
+
+            <a href="individual-task.html" target="_blank" 
+               style="color: white; text-decoration: none; background: rgba(255, 255, 255, 0.2); padding: 8px 20px; border-radius: 5px; display: inline-block; transition: background 0.3s;">
+               <i class="fas fa-book"></i> An individual task spinning wheel guide
+            </a>
+        </div>
+
     </div>
 
+    <!-- About Me Modal -->
+    <div id="about-modal" class="about-modal">
+        <div class="about-content">
+            <button class="close-about">&times;</button>
+            
+            <div class="profile-section">
+                <!-- Replace with your actual image -->
+                <img src="profile.jpg" alt="Developer" class="profile-picture" 
+                     onerror="this.src='Sometri.jpg'">
+                <h2 class="profile-name">Oeng Sometri</h2>
+                <p class="profile-title">Web Developer & Educator</p>
+            </div>
+            
+            <div class="about-text">
+                <p>Hello! I'm passionate about creating educational tools that make teaching more effective and engaging.</p>
+                <p>This Student Group Spinner was designed to help educators create fair, random groups quickly and easily.</p>
+                <p>Feel free to reach out if you have suggestions or feedback!</p>
+            </div>
+            
+            <div class="contact-links">
+                <a href="https://github.com/sometri" target="_blank" class="contact-link github" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/sometri" target="_blank" class="contact-link linkedin" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:sometri.lecture@gmail.com.com" class="contact-link email" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Help Links -->
+    <!-- <a href="README.md" target="_blank" class="help-link">
+        <i class="fas fa-question-circle"></i>
+        <span>User Guide</span>
+    </a> -->
+    <a href="readme.html" target="_self" class="help-link">
+        <i class="fas fa-question-circle"></i>
+        <span>User Guide</span>
+    </a>
+    
+    <a href="#" id="about-help-link" class="help-link about">
+        <i class="fas fa-user"></i>
+        <span>About Creator</span>
+    </a>
+
+    <!-- Notification -->
     <div id="notification" class="notification"></div>
 
     <script>
@@ -181,6 +255,12 @@
         const distributeEvenlyBtn = document.getElementById('distribute-evenly');
         const distributeFirstBtn = document.getElementById('distribute-first');
         const distributeLastBtn = document.getElementById('distribute-last');
+        
+        // About modal elements
+        const aboutLink = document.getElementById('about-link');
+        const aboutHelpLink = document.getElementById('about-help-link');
+        const aboutModal = document.getElementById('about-modal');
+        const closeAbout = document.querySelector('.close-about');
 
         // Wheel variables
         const ctx = wheelCanvas.getContext('2d');
@@ -211,6 +291,34 @@
             distributeEvenlyBtn.addEventListener('click', () => setDistributionMethod('evenly'));
             distributeFirstBtn.addEventListener('click', () => setDistributionMethod('first'));
             distributeLastBtn.addEventListener('click', () => setDistributionMethod('last'));
+            
+            // About modal events
+            aboutLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                aboutModal.classList.add('active');
+            });
+            
+            aboutHelpLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                aboutModal.classList.add('active');
+            });
+            
+            closeAbout.addEventListener('click', () => {
+                aboutModal.classList.remove('active');
+            });
+            
+            aboutModal.addEventListener('click', (e) => {
+                if (e.target === aboutModal) {
+                    aboutModal.classList.remove('active');
+                }
+            });
+            
+            // Close modal with ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && aboutModal.classList.contains('active')) {
+                    aboutModal.classList.remove('active');
+                }
+            });
             
             // Load any saved data from localStorage
             loadFromLocalStorage();
@@ -310,7 +418,7 @@
                         const content = e.target.result;
                         students = parseTextFile(content);
                     } else if (fileType === 'xlsx' || fileType === 'xls') {
-                        // Process Excel file (simplified - in real app you'd need a library like SheetJS)
+                        // Process Excel file
                         showNotification('Excel files require additional libraries. Please use TXT or CSV files.', 'error');
                         return;
                     } else {
@@ -334,7 +442,6 @@
             if (fileType === 'txt' || fileType === 'csv') {
                 reader.readAsText(file);
             } else {
-                // For other file types, read as binary
                 reader.readAsBinaryString(file);
             }
             
@@ -348,13 +455,10 @@
             const lines = content.split('\n');
             
             for (let line of lines) {
-                // Remove carriage returns and trim whitespace
                 line = line.replace(/\r/g, '').trim();
                 
-                // Skip empty lines
                 if (!line) continue;
                 
-                // Handle CSV format (comma separated)
                 if (line.includes(',')) {
                     const parts = line.split(',');
                     for (let part of parts) {
@@ -364,7 +468,6 @@
                         }
                     }
                 } else {
-                    // Handle line-by-line format
                     if (!students.includes(line)) {
                         students.push(line);
                     }
@@ -381,7 +484,6 @@
                 return;
             }
             
-            // Add students that aren't already in the list
             let addedCount = 0;
             for (let student of students) {
                 if (student && !state.students.includes(student)) {
@@ -426,49 +528,38 @@
 
         // Draw the wheel
         function drawWheel() {
-            // Clear canvas
             ctx.clearRect(0, 0, wheelCanvas.width, wheelCanvas.height);
             
-            // If no students, draw empty wheel
             if (state.students.length === 0) {
                 drawEmptyWheel();
                 return;
             }
             
-            // Calculate segment angle
             const segmentAngle = (2 * Math.PI) / state.students.length;
-            
-            // Reset wheel segments
             state.wheelSegments = [];
             
-            // Draw each segment
             for (let i = 0; i < state.students.length; i++) {
                 const startAngle = i * segmentAngle + currentRotation;
                 const endAngle = (i + 1) * segmentAngle + currentRotation;
                 
-                // Save segment data for spinning
                 state.wheelSegments.push({
                     startAngle,
                     endAngle,
                     student: state.students[i]
                 });
                 
-                // Draw segment
                 ctx.beginPath();
                 ctx.moveTo(wheelRadius, wheelRadius);
                 ctx.arc(wheelRadius, wheelRadius, wheelRadius, startAngle, endAngle);
                 ctx.closePath();
                 
-                // Fill with color
                 ctx.fillStyle = state.colors[i % state.colors.length];
                 ctx.fill();
                 
-                // Draw segment border
                 ctx.strokeStyle = 'white';
                 ctx.lineWidth = 2;
                 ctx.stroke();
                 
-                // Draw student name
                 ctx.save();
                 ctx.translate(wheelRadius, wheelRadius);
                 ctx.rotate(startAngle + segmentAngle / 2);
@@ -476,7 +567,6 @@
                 ctx.fillStyle = 'white';
                 ctx.font = `bold ${Math.max(14, wheelRadius / 15)}px Segoe UI`;
                 
-                // Truncate long names
                 let displayName = state.students[i];
                 if (displayName.length > 15) {
                     displayName = displayName.substring(0, 12) + '...';
@@ -486,7 +576,6 @@
                 ctx.restore();
             }
             
-            // Draw center circle
             ctx.beginPath();
             ctx.arc(wheelRadius, wheelRadius, 15, 0, 2 * Math.PI);
             ctx.fillStyle = '#333';
@@ -506,13 +595,11 @@
             ctx.lineWidth = 3;
             ctx.stroke();
             
-            // Draw "Add Students" text
             ctx.fillStyle = '#aaa';
             ctx.font = `bold ${wheelRadius / 10}px Segoe UI`;
             ctx.textAlign = 'center';
             ctx.fillText('Add students to begin', wheelRadius, wheelRadius);
             
-            // Draw center circle
             ctx.beginPath();
             ctx.arc(wheelRadius, wheelRadius, 15, 0, 2 * Math.PI);
             ctx.fillStyle = '#ccc';
@@ -523,14 +610,13 @@
         function spinWheel() {
             if (state.wheelSpinning || state.students.length === 0) return;
             
-            // Calculate group configuration
             const groupSize = parseInt(groupSizeSelect.value);
             const groupCountValue = groupCountSelect.value;
             
             let groupCount;
             if (groupCountValue === 'auto') {
                 if (groupSize === 0) {
-                    groupCount = Math.ceil(state.students.length / 3); // Default to groups of 3
+                    groupCount = Math.ceil(state.students.length / 3);
                 } else {
                     groupCount = Math.ceil(state.students.length / groupSize);
                 }
@@ -538,26 +624,21 @@
                 groupCount = parseInt(groupCountValue);
             }
             
-            // Validate we have enough students
             if (state.students.length < groupCount) {
                 showNotification(`Not enough students. Need at least ${groupCount} students for ${groupCount} groups.`, 'error');
                 return;
             }
             
-            // Disable spin button
             state.wheelSpinning = true;
             spinButton.disabled = true;
             spinButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Spinning...';
             
-            // Create groups based on distribution method
             createGroups(groupCount);
             
-            // Calculate spin parameters
-            const spinDuration = 3000; // 3 seconds
-            const spinCycles = 5; // 5 full rotations
+            const spinDuration = 3000;
+            const spinCycles = 5;
             const finalRotation = spinCycles * 2 * Math.PI + Math.random() * 2 * Math.PI;
             
-            // Animate the spin
             let startTime = null;
             
             function animateSpin(timestamp) {
@@ -565,28 +646,20 @@
                 const elapsed = timestamp - startTime;
                 const progress = Math.min(elapsed / spinDuration, 1);
                 
-                // Easing function for smooth deceleration
                 const easeOut = 1 - Math.pow(1 - progress, 3);
-                
-                // Update rotation
                 currentRotation = easeOut * finalRotation;
                 drawWheel();
                 
                 if (progress < 1) {
                     spinAnimation = requestAnimationFrame(animateSpin);
                 } else {
-                    // Spin complete
                     state.wheelSpinning = false;
                     spinButton.disabled = false;
                     spinButton.innerHTML = '<i class="fas fa-redo-alt"></i> Spin the Wheel';
                     
-                    // Display groups
                     displayGroups();
-                    
-                    // Save to localStorage
                     saveToLocalStorage();
                     
-                    // Show notification
                     showNotification(`Created ${state.groups.length} groups successfully!`);
                 }
             }
@@ -596,18 +669,14 @@
 
         // Create groups based on distribution method
         function createGroups(groupCount) {
-            // Create a copy of students and shuffle
             const shuffledStudents = [...state.students];
             shuffleArray(shuffledStudents);
             
-            // Initialize groups
             state.groups = Array.from({ length: groupCount }, () => []);
             
-            // Calculate ideal group size
             const idealGroupSize = Math.floor(shuffledStudents.length / groupCount);
             const remainder = shuffledStudents.length % groupCount;
             
-            // Distribute students based on selected method
             if (state.distributionMethod === 'evenly') {
                 distributeEvenly(shuffledStudents, groupCount, idealGroupSize, remainder);
             } else if (state.distributionMethod === 'first') {
@@ -616,7 +685,6 @@
                 distributeToLastGroups(shuffledStudents, groupCount, idealGroupSize, remainder);
             }
             
-            // Remove empty groups if any
             state.groups = state.groups.filter(group => group.length > 0);
         }
 
@@ -624,7 +692,6 @@
         function distributeEvenly(students, groupCount, idealSize, remainder) {
             let studentIndex = 0;
             
-            // First pass: distribute ideal size to all groups
             for (let i = 0; i < groupCount; i++) {
                 for (let j = 0; j < idealSize; j++) {
                     if (studentIndex < students.length) {
@@ -634,7 +701,6 @@
                 }
             }
             
-            // Second pass: distribute remainder to first 'remainder' groups
             for (let i = 0; i < remainder; i++) {
                 if (studentIndex < students.length) {
                     state.groups[i].push(students[studentIndex]);
@@ -646,16 +712,12 @@
         // Distribute extra students to first groups
         function distributeToFirstGroups(students, groupCount, idealSize, remainder) {
             let studentIndex = 0;
-            
-            // Calculate sizes for each group
             const groupSizes = Array(groupCount).fill(idealSize);
             
-            // Add remainder to first groups
             for (let i = 0; i < remainder; i++) {
                 groupSizes[i]++;
             }
             
-            // Distribute students according to group sizes
             for (let i = 0; i < groupCount; i++) {
                 for (let j = 0; j < groupSizes[i]; j++) {
                     if (studentIndex < students.length) {
@@ -669,16 +731,12 @@
         // Distribute extra students to last groups
         function distributeToLastGroups(students, groupCount, idealSize, remainder) {
             let studentIndex = 0;
-            
-            // Calculate sizes for each group
             const groupSizes = Array(groupCount).fill(idealSize);
             
-            // Add remainder to last groups
             for (let i = groupCount - 1; i >= groupCount - remainder; i--) {
                 groupSizes[i]++;
             }
             
-            // Distribute students according to group sizes
             for (let i = 0; i < groupCount; i++) {
                 for (let j = 0; j < groupSizes[i]; j++) {
                     if (studentIndex < students.length) {
@@ -696,7 +754,6 @@
                 return;
             }
             
-            // Calculate group sizes to identify uneven groups
             const groupSizes = state.groups.map(group => group.length);
             const minSize = Math.min(...groupSizes);
             const maxSize = Math.max(...groupSizes);
@@ -725,7 +782,6 @@
                 `;
             });
             
-            // Add distribution info if groups are uneven
             if (hasUnevenGroups) {
                 const extraStudents = maxSize - minSize;
                 groupsHTML += `
@@ -767,7 +823,6 @@
         function updateStudentList() {
             studentCount.textContent = `${state.students.length} students`;
             
-            // Update file preview if it exists
             if (filePreview.innerHTML) {
                 const previewElement = filePreview.querySelector('.preview-count');
                 if (previewElement) {
@@ -795,7 +850,6 @@
             
             studentList.innerHTML = studentsHTML;
             
-            // Add event listeners to remove buttons
             document.querySelectorAll('.remove-student').forEach(button => {
                 button.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
@@ -825,7 +879,6 @@
                 drawWheel();
                 saveToLocalStorage();
                 
-                // Clear file preview
                 filePreview.innerHTML = '';
                 
                 showNotification('All students removed');
@@ -841,7 +894,6 @@
                 'William Jackson', 'Mia White', 'Joseph Harris', 'Charlotte Martin'
             ];
             
-            // Only add students that aren't already in the list
             sampleStudents.forEach(student => {
                 if (!state.students.includes(student)) {
                     state.students.push(student);
@@ -881,7 +933,6 @@
                 exportText += '\n';
             });
             
-            // Add summary
             const groupSizes = state.groups.map(group => group.length);
             const minSize = Math.min(...groupSizes);
             const maxSize = Math.max(...groupSizes);
@@ -893,7 +944,6 @@
                 exportText += `  - Extra students in some groups: ${maxSize - minSize}\n`;
             }
             
-            // Create download link
             const blob = new Blob([exportText], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -923,7 +973,6 @@
                 exportText += `${index + 1}. ${student}\n`;
             });
             
-            // Create download link
             const blob = new Blob([exportText], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1017,14 +1066,6 @@
 
         // Initialize the app
         window.addEventListener('DOMContentLoaded', init);
-    </script>
-    
-    <!-- User Guide Float Aside -->
-    <a href="README.md" target="_blank" class="help-link">
-        <i class="fas fa-book help-link-icon"></i>
-        <span>User Guide</span>
-    </a>
+    </script>    
 </body>
-
 </html>
-

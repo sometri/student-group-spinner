@@ -1,307 +1,572 @@
-# Student Group Spinner - Complete User Guide
-
-## 📋 **Overview**
-The Student Group Spinner is a web-based application that helps educators create random student groups using an interactive spinning wheel. It features a comprehensive dashboard for managing students, configuring groups, and visualizing results.
-
-## 🎯 **Quick Start Guide**
-
-### **Step 1: Access the Application**
-1. Save the HTML code as `student-group-spinner.html`
-2. Open the file in any modern web browser (Chrome, Firefox, Edge, Safari)
-3. No installation or internet connection required after saving
-
-### **Step 2: Add Students**
-You have **three ways** to add students:
-
-#### **Method A: Manual Entry**
-1. Type a student's name in the text box under "Student List"
-2. Press **Enter** or click the **"Add"** button
-3. Repeat for all students
-
-#### **Method B: File Upload**
-1. Click **"Browse Files"** in the upload area or drag & drop a file
-2. **Supported formats**: `.txt`, `.csv`
-3. **File format options**:
-   - One student per line:
-     ```
-     Alice Johnson
-     Bob Smith
-     Carol Davis
-     ```
-   - Comma-separated:
-     ```
-     Alice Johnson, Bob Smith, Carol Davis
-     ```
-
-#### **Method C: Sample Students**
-1. Click **"Add Sample Students"** for a quick list of 16 sample names
-2. Useful for testing the application
-
-### **Step 3: Configure Groups**
-
-#### **Group Size Options:**
-- **Fixed size**: Choose 2-6 students per group
-- **Custom**: Select "Custom (use group count)" to define only the number of groups
-
-#### **Number of Groups:**
-- **Auto-calculate**: Automatically calculates based on student count and group size
-- **Fixed number**: Choose 2-8 groups (extra options available)
-
-#### **Distribution Method** (for uneven student counts):
-1. **Evenly Distribute** (Default): Spreads extra students across first groups
-2. **Fill First Groups**: Prioritizes filling earlier groups completely
-3. **Fill Last Groups**: Prioritizes filling later groups completely
-
-### **Step 4: Generate Groups**
-1. Click the **"Spin the Wheel"** button
-2. Watch the animated wheel spin for 3 seconds
-3. View automatically generated groups in the results section
-
-## 🎡 **Using the Spinning Wheel**
-
-### **Visual Features:**
-- **Color-coded segments**: Each student gets a unique color
-- **Student names**: Displayed on their respective segments
-- **Center pointer**: Indicates the starting position
-- **Smooth animation**: With realistic physics simulation
-
-### **Wheel Behavior:**
-- Spins for 5 full rotations plus a random final position
-- Animation slows down realistically (easing effect)
-- Results appear immediately after spinning stops
-
-## 📊 **Understanding Results**
-
-### **Group Display:**
-- **Group cards**: Each group shown in a separate box
-- **Member list**: All students in the group listed
-- **Group size**: Number displayed in a colored circle
-- **Uneven groups**: Highlighted with red border and background
-
-### **Interpreting Uneven Groups:**
-When student count doesn't divide evenly:
-
-#### **Scenario**: 14 students, 4 groups
-- **Even Distribution**: Groups of 4, 4, 3, 3
-- **Fill First**: Groups of 4, 4, 3, 3
-- **Fill Last**: Groups of 3, 3, 4, 4
-
-**Visual indicators**:
-- ✅ Even groups: Blue border
-- ⚠️ Uneven groups: Red border with light red background
-- Summary message explains the distribution
-
-## 💾 **Data Management**
-
-### **Automatic Saving:**
-- All data automatically saves to your browser's local storage
-- Students, groups, and settings persist between sessions
-- No manual saving required
-
-### **Manual Actions:**
-
-#### **Clear Students:**
-1. Click **"Clear All"** button
-2. Confirm the action when prompted
-3. ⚠️ This action cannot be undone
-
-#### **Reset Groups:**
-1. Click **"Reset Groups"** button
-2. Removes all generated groups
-3. Does not affect student list
-
-## 📤 **Export Features**
-
-### **Export Groups:**
-1. Click **"Export Groups"** button
-2. Downloads a `.txt` file with:
-   - Generation date and time
-   - Total student count
-   - Number of groups
-   - Distribution method used
-   - Complete group lists with member names
-   - Summary of uneven groups (if applicable)
-
-### **Export Student List:**
-1. Click **"Export Student List"** button
-2. Downloads a `.txt` file with:
-   - Export date and time
-   - All students numbered sequentially
-
-## 🔧 **Advanced Features**
-
-### **Managing Individual Students:**
-
-#### **Remove a Student:**
-1. Find the student in the list
-2. Click the **red "×"** button next to their name
-3. Student is immediately removed
-
-#### **Edit Student List:**
-- **Add**: Use the input field or file upload
-- **Remove**: Click individual remove buttons
-- **Clear**: Use "Clear All" for complete reset
-
-### **File Upload Details:**
-
-#### **Best Practices:**
-1. **File encoding**: Use UTF-8 for special characters
-2. **Name format**: Firstname Lastname (recommended)
-3. **Duplicate handling**: Duplicate names are automatically filtered
-
-#### **Troubleshooting Uploads:**
-- **Empty file**: Shows error notification
-- **Unsupported format**: Only TXT/CSV accepted
-- **Large files**: Processed efficiently (no practical limit)
-
-### **Distribution Method Scenarios:**
-
-#### **Class of 17 students, 5 groups:**
-- **Evenly**: 4, 4, 3, 3, 3
-- **First Groups**: 4, 4, 3, 3, 3
-- **Last Groups**: 3, 3, 3, 4, 4
-
-#### **When to use each method:**
-- **Evenly**: General purpose, balanced approach
-- **First Groups**: When first groups need to be complete for activities
-- **Last Groups**: When later groups need full teams for competitions
-
-## 📱 **Mobile & Responsive Use**
-
-### **Mobile Features:**
-- **Adaptive layout**: Adjusts for different screen sizes
-- **Touch-friendly**: All buttons optimized for touch
-- **Vertical stacking**: On small screens, sections stack vertically
-
-### **Screen Size Adaptation:**
-- **Large screens**: Side-by-side wheel and dashboard
-- **Medium screens**: Adjusted wheel size
-- **Small screens**: Single column layout
-
-## 🔔 **Notifications & Feedback**
-
-### **Notification Types:**
-- **Success** (Green): Actions completed successfully
-- **Error** (Red): Something went wrong, action needed
-- **Info** (Blue): Informational messages
-
-### **Common Notifications:**
-- "Added X students from file"
-- "Created X groups successfully!"
-- "Not enough students for the selected number of groups"
-- "Loaded X students from previous session"
-
-## 💡 **Pro Tips**
-
-### **For Classroom Use:**
-1. **Prepare in advance**: Upload student list before class
-2. **Save time**: Use sample students for demonstration
-3. **Multiple rounds**: Reset groups and spin again for different combinations
-4. **Export records**: Save group lists for attendance or grading
-
-### **Technical Tips:**
-1. **Browser choice**: Chrome or Firefox for best performance
-2. **File backup**: Export student list as backup
-3. **Printing**: Use browser's print feature for group lists
-4. **Fullscreen**: Press F11 for better visibility during demonstrations
-
-## 🛠 **Troubleshooting**
-
-### **Common Issues:**
-
-#### **Wheel Not Spinning:**
-- Check if students are added
-- Ensure "Spin the Wheel" button is not disabled
-- Refresh the page if unresponsive
-
-#### **File Not Uploading:**
-- Verify file format (.txt or .csv)
-- Check file encoding (use plain text)
-- Ensure file is not empty
-
-#### **Groups Not Generating:**
-- Verify student count ≥ group count
-- Check distribution method selection
-- Try resetting and spinning again
-
-#### **Data Not Saving:**
-- Check browser settings (local storage enabled)
-- Try different browser
-- Export data before clearing browser cache
-
-### **Browser Compatibility:**
-- **Fully supported**: Chrome 60+, Firefox 55+, Edge 79+, Safari 11+
-- **Partially supported**: Older browsers may lack some animations
-- **Not supported**: Internet Explorer
-
-## 🔄 **Workflow Examples**
-
-### **Example 1: Quick Group Creation**
-1. Click "Add Sample Students"
-2. Set "Group Size" to 4
-3. Click "Spin the Wheel"
-4. Export groups if needed
-
-### **Example 2: Custom Distribution**
-1. Upload student list from file
-2. Set "Number of Groups" to 5
-3. Select "Fill Last Groups" distribution
-4. Spin and review uneven groups
-5. Adjust if needed
-
-### **Example 3: Repeated Use**
-1. Load previous session (automatic)
-2. Modify student list if needed
-3. Change group configuration
-4. Generate new groups
-5. Export both student list and groups
-
-## 📚 **Educational Applications**
-
-### **Classroom Uses:**
-- **Group projects**: Random, unbiased team creation
-- **Discussion groups**: Mix students for diverse perspectives
-- **Peer review**: Assign reviewers randomly
-- **Seating arrangements**: Create new seating groups
-
-### **Benefits:**
-- **Fairness**: Eliminates teacher bias in group creation
-- **Efficiency**: Saves time compared to manual grouping
-- **Flexibility**: Multiple configuration options
-- **Transparency**: Visual process students can see
-- **Record keeping**: Export for documentation
-
-## ⚙️ **Technical Details**
-
-### **Data Storage:**
-- **Location**: Browser's local storage
-- **Capacity**: Typically 5-10MB per domain
-- **Access**: Only from same browser on same device
-
-### **Performance:**
-- **Student limit**: Practical limit of 100+ students
-- **Group limit**: Up to 8 groups (configurable)
-- **Animation**: 60fps smooth spinning
-
-### **Security & Privacy:**
-- **Local processing**: All data stays on your computer
-- **No internet**: Works completely offline
-- **No tracking**: No analytics or data collection
-- **Export control**: You control what gets exported
-
-## 🆘 **Getting Help**
-
-### **Built-in Help:**
-- Tooltips and labels throughout interface
-- Clear error messages with suggestions
-- Visual indicators for all actions
-
-### **Quick Reference:**
-- **Add students**: Text input or file upload
-- **Configure**: Set group size/count and distribution
-- **Generate**: Click spin button
-- **Export**: Download results for records
-
----
-
-**Note**: This application works entirely in your browser. No data is sent to any server, making it ideal for privacy-conscious educational environments. All features are available offline once the file is downloaded.
+📋 Table of Contents
+Overview
+
+Features
+
+Quick Start
+
+Detailed Guide
+
+Adding Students
+
+Configuring Groups
+
+Using the Wheel
+
+Understanding Results
+
+Exporting Data
+
+Advanced Features
+
+Troubleshooting
+
+About the Creator
+
+Technical Details
+
+🎯 Overview
+The Student Group Spinner is a web-based application designed for educators to create random, fair student groups quickly and efficiently. With its interactive spinning wheel and comprehensive dashboard, it transforms the group creation process into an engaging, visual experience.
+
+Perfect for: Classroom teachers, workshop facilitators, team leaders, and anyone needing to create balanced groups.
+
+✨ Features
+✅ Interactive Spinning Wheel - Visual, animated wheel with color-coded segments
+✅ Multiple Student Entry Methods - Manual entry, file upload, or sample data
+✅ Smart Group Distribution - Three methods for handling uneven student counts
+✅ File Upload Support - Import student lists from TXT/CSV files
+✅ Data Persistence - Automatically saves your work between sessions
+✅ Export Capabilities - Download groups and student lists as text files
+✅ Responsive Design - Works on desktop, tablet, and mobile devices
+✅ No Installation Required - Runs directly in your web browser
+✅ Completely Offline - All processing happens on your computer
+✅ Professional UI - Clean, modern interface with helpful notifications
+
+🚀 Quick Start Guide
+Step 1: Launch the Application
+Download the student-group-spinner.html file
+
+Double-click to open in any modern browser (Chrome, Firefox, Edge, Safari)
+
+No internet connection required after initial load
+
+Step 2: Add Students (Choose One Method)
+Type names: Enter names in the text box and click "Add"
+
+Upload file: Drag & drop a TXT/CSV file with student names
+
+Use samples: Click "Add Sample Students" for instant demo data
+
+Step 3: Configure Groups
+Set Group Size (2-6 students or Custom)
+
+Choose Number of Groups (Auto-calculate or specific number)
+
+Select Distribution Method for uneven counts
+
+Step 4: Generate Groups
+Click the "Spin the Wheel" button
+
+Watch the animated wheel spin (3 seconds)
+
+View automatically generated groups
+
+Step 5: Save Results
+Export Groups: Download groups as a text file
+
+Export Student List: Save your student roster
+
+Print: Use browser's print function for hard copies
+
+📚 Detailed Guide
+Adding Students
+Method 1: Manual Entry
+Locate the "Student List" section in the dashboard
+
+Type a student's name in the text input field
+
+Press Enter or click the "Add" button
+
+Repeat for all students
+
+Tip: Use first and last names for clarity (e.g., "Alex Johnson" instead of just "Alex")
+
+Method 2: File Upload
+Supported file formats: .txt, .csv
+
+File Format Examples:
+
+Option A: One student per line
+
+Oeng Sometri
+Alice Johnson
+Bob Smith
+Carol Davis
+David Wilson
+Emma Brown
+Option B: Comma-separated
+
+
+Alice Johnson, Bob Smith, Carol Davis, David Wilson, Emma Brown
+Upload Steps:
+
+Click "Browse Files" or drag & drop your file
+
+The system automatically parses and adds unique names
+
+View upload confirmation with student count
+
+Method 3: Sample Students
+Click "Add Sample Students" for 16 pre-filled names
+
+Great for testing and demonstration
+
+Can be combined with your own students
+
+Managing Your Student List
+Remove a student: Click the red × button next to any name
+
+Clear all students: Use the "Clear All" button (requires confirmation)
+
+Student count: Always visible at the top of the list
+
+Configuring Groups
+Group Size Options
+Fixed size (2-6): Each group will have approximately this many students
+
+Custom: Ignores size, uses only the group count setting
+
+Number of Groups
+Auto-calculate: Calculates based on student count ÷ group size
+
+Fixed number (2-8): Creates exactly this many groups
+
+Distribution Methods
+When student counts don't divide evenly:
+
+Method	Description	Best For
+Evenly Distribute	Spreads extra students across first groups	General classroom use
+Fill First Groups	Prioritizes filling earlier groups completely	Activities where first groups need full teams
+Fill Last Groups	Prioritizes filling later groups completely	Competitions where later groups need full teams
+Example: 14 students, 4 groups
+
+Evenly/Fill First: 4, 4, 3, 3
+
+Fill Last: 3, 3, 4, 4
+
+Using the Spinning Wheel
+Visual Elements
+Color-coded segments: Each student gets a unique color
+
+Student names: Displayed on wheel segments (truncated if long)
+
+Center pointer: Indicates the starting position
+
+Spinning animation: 5 rotations with realistic physics
+
+How It Works
+The wheel spins for exactly 3 seconds
+
+Uses easing for realistic deceleration
+
+Results appear immediately after spinning stops
+
+The visual spin is for engagement - groups are calculated instantly
+
+Resetting
+Reset Groups: Clears current groups for a new spin
+
+Does not affect your student list
+
+Understanding Results
+Group Display
+Each group appears in a card showing:
+
+Group number (1, 2, 3, etc.)
+
+Student count in a colored circle
+
+List of all members
+
+Visual indicators for uneven groups
+
+Uneven Groups
+When groups have different sizes:
+
+Red border highlights uneven groups
+
+Light red background for visual distinction
+
+Summary message explains the distribution
+
+Export includes uneven group notation
+
+Interpreting Results
+Blue border: Group has standard size
+
+Red border: Group has extra students
+
+Group count: Shows actual student count per group
+
+Distribution summary: Explains how extra students were assigned
+
+Exporting Data
+Export Groups
+Creates a comprehensive text file with:
+
+Generation date and time
+
+Total student count
+
+Number of groups created
+
+Distribution method used
+
+Complete group lists with member names
+
+Summary of uneven groups (if applicable)
+
+File naming: student-groups-YYYY-MM-DD.txt
+
+Export Student List
+Creates a simple roster file with:
+
+Export date and time
+
+Total student count
+
+Numbered list of all students
+
+File naming: student-list-YYYY-MM-DD.txt
+
+Printing
+Use your browser's print function (Ctrl+P or Cmd+P):
+
+Select "Save as PDF" for digital copies
+
+Adjust margins for optimal formatting
+
+Groups print in their card format
+
+🔧 Advanced Features
+Data Persistence
+Automatic saving: All data saves to browser's local storage
+
+Session recovery: Reopens with your last student list and settings
+
+Browser-specific: Data stays in the browser where you saved it
+
+Responsive Design
+The application adapts to different screen sizes:
+
+Screen Size	Layout	Wheel Size
+Desktop	Side-by-side wheel and dashboard	500px
+Tablet	Stacked layout	350-400px
+Mobile	Single column	300px
+Keyboard Shortcuts
+Enter: Add student from input field
+
+ESC: Close modal windows
+
+Browser shortcuts: Ctrl+S (Save), Ctrl+P (Print)
+
+Best Practices for Classroom Use
+Before Class
+Upload your student roster file
+
+Test different group configurations
+
+Export a backup of your student list
+
+During Class
+Project the application for full class visibility
+
+Let students see the spinning wheel for engagement
+
+Use "Spin Again" for multiple activities
+
+After Class
+Export groups for record-keeping
+
+Reset for next session
+
+Update student list for absences
+
+File Management Tips
+Keep backups: Export student lists regularly
+
+File naming: Use consistent names (e.g., period1-students.csv)
+
+Encoding: Use UTF-8 for special characters
+
+Duplicates: The system automatically filters duplicate names
+
+🛠 Troubleshooting
+Common Issues & Solutions
+Wheel Won't Spin
+Check: Are students added? (Need at least 2)
+
+Check: Is the spin button enabled? (Not grayed out)
+
+Try: Refresh the page (F5) if unresponsive
+
+File Won't Upload
+Verify: File is .txt or .csv format
+
+Check: File is not empty
+
+Try: Different file encoding (use UTF-8)
+
+Alternative: Copy-paste names manually
+
+Groups Not Generating
+Check: Student count ≥ desired group count
+
+Verify: Distribution method is selected
+
+Try: Different group size/number combination
+
+Data Not Saving
+Check: Browser supports localStorage
+
+Try: Different browser (Chrome/Firefox recommended)
+
+Export: Always export important data as backup
+
+Display Issues
+Refresh: Reload the page (F5)
+
+Zoom: Reset browser zoom (Ctrl+0)
+
+Browser: Update to latest version
+
+Browser Compatibility
+Browser	Status	Notes
+Chrome	✅ Fully supported	Version 60+
+Firefox	✅ Fully supported	Version 55+
+Edge	✅ Fully supported	Version 79+
+Safari	✅ Fully supported	Version 11+
+Internet Explorer	❌ Not supported	Use modern browser
+Performance Tips
+Student limit: Works with 100+ students (practical limit)
+
+Group limit: Up to 8 groups recommended
+
+Animation: Disabled on very old devices
+
+Storage: Clear browser cache if experiencing issues
+
+👤 About the Creator
+Your Name Here
+Web Developer & Educator
+
+https://profile.jpg
+
+Contact Information
+GitHub: @yourusername
+
+LinkedIn: Your Name
+
+Email: youremail@example.com
+
+About This Project
+This application was created to solve a common classroom challenge: creating fair, random student groups quickly and transparently. As an educator and developer, I wanted to combine engaging visuals with practical functionality.
+
+Philosophy: Technology should make teaching easier, not more complicated. This tool exemplifies that principle by providing:
+
+Simplicity: One-click group creation
+
+Transparency: Visual process students can see
+
+Flexibility: Multiple configuration options
+
+Reliability: Works offline with no dependencies
+
+Feedback & Contributions
+I welcome your feedback and suggestions! Whether you've found a bug, have a feature request, or just want to share how you're using the tool, please reach out.
+
+Ways to contribute:
+
+Report issues or bugs
+
+Suggest new features
+
+Share your use cases
+
+Translate to other languages
+
+⚙️ Technical Details
+Architecture
+Frontend: HTML5, CSS3, JavaScript (ES6+)
+
+Storage: Browser localStorage API
+
+Graphics: HTML5 Canvas for wheel animation
+
+Icons: Font Awesome 6.4.0
+
+Fonts: System fonts (Segoe UI, fallbacks)
+
+Data Flow
+Input: Students added via UI or file upload
+
+Processing: Random shuffle + distribution algorithm
+
+Output: Visual groups + exportable text files
+
+Storage: Automatic save to browser storage
+
+Security & Privacy
+Local processing: All data stays on your computer
+
+No tracking: No analytics, cookies, or data collection
+
+No server: Works completely offline
+
+Export control: You decide what gets saved externally
+
+File Structure
+
+student-group-spinner.html    # Main application
+README.md                     # This guide
+profile.jpg                   # Creator profile picture (optional)
+student-list.csv              # Example student file (optional)
+Dependencies
+Font Awesome CDN: Icons (loaded once)
+
+No other external dependencies
+
+Browser Storage Usage
+Location: localStorage in your browser
+
+Key: studentGroupSpinner
+
+Data: JSON format with all application state
+
+Size: Typically < 100KB
+
+Clearing: Use browser settings or "Clear All" button
+
+📖 Usage Examples
+Example 1: Quick Classroom Groups
+
+Scenario: 24 students, groups of 4
+Steps:
+1. Upload student list
+2. Set Group Size: 4
+3. Set Groups: Auto-calculate
+4. Distribution: Evenly
+5. Click Spin
+Result: 6 groups of 4 students each
+Example 2: Workshop Breakout Sessions
+
+Scenario: 18 participants, 4 breakout groups
+Steps:
+1. Add participants manually
+2. Set Group Size: Custom
+3. Set Groups: 4
+4. Distribution: Fill Last Groups
+5. Click Spin
+Result: Groups of 4, 4, 5, 5
+Example 3: Team Projects
+
+Scenario: 28 students, 6 project teams
+Steps:
+1. Use existing student list
+2. Set Group Size: Custom
+3. Set Groups: 6
+4. Distribution: Fill First Groups
+5. Click Spin
+6. Export for project records
+Result: Teams assigned with documentation
+🔄 Update History
+Version 1.0 (Current)
+Initial release with all core features
+
+Spinning wheel with animation
+
+File upload support
+
+Multiple distribution methods
+
+Export functionality
+
+Responsive design
+
+About Me section
+
+Planned Features
+Custom color schemes
+
+Group naming (instead of numbers)
+
+Advanced export formats (Excel, PDF)
+
+Student photos integration
+
+Multiple class/period support
+
+Attendance tracking integration
+
+📞 Support
+Getting Help
+Check this guide - Most questions answered here
+
+Browser console - Press F12 for error details
+
+Contact creator - Use the About modal in the app
+
+Common Questions
+Q: Can I use this on multiple computers?
+A: Yes, but student lists don't sync automatically. Export/import your list.
+
+Q: Is there a mobile app?
+A: Not currently, but the web version works perfectly on mobile browsers.
+
+Q: Can I save different class lists?
+A: Export each class list as a separate file and import as needed.
+
+Q: Is my data secure?
+A: Yes, all data stays on your computer. Nothing is sent to any server.
+
+Q: Can I customize the colors?
+A: Currently uses predefined colors. Customization planned for future updates.
+
+📜 License & Attribution
+Usage Rights
+Free for educational use
+
+Modification allowed for personal/classroom use
+
+Commercial use requires permission
+
+Attribution appreciated but not required
+
+Third-Party Resources
+Font Awesome: Icon library (CC BY 4.0)
+
+Unsplash: Sample images (free to use)
+
+Google Fonts: System font stack
+
+Disclaimer
+This software is provided "as-is" without warranty. The creator is not responsible for any issues arising from its use. Always keep backups of important data.
+
+🎉 Get Started Now!
+Download the HTML file
+
+Open in your browser
+
+Add your students
+
+Configure your groups
+
+Spin the wheel
+
+Enjoy fair, random groups!
+
+Happy Teaching! 🍎
+
+Last Updated: $(date)
+Version: 1.0
+Creator: Your Name Here
